@@ -10,7 +10,7 @@ function ServerTable() {
   const { accessToken, accessTokenPayload } = useOidcAccessToken()
   useEffect(() => {
     setLoading(true)
-    fetch("http://vader.csh.rit.edu:8000/api/admin/server", {
+    fetch(`${process.env.REACT_APP_API_DOMAIN}/api/admin/server`, {
       headers: { "Authorization": `Bearer ${accessToken}` }
     })
       .then(response => {

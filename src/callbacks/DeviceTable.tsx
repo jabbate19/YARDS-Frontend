@@ -10,7 +10,7 @@ function DeviceTable() {
   const { accessToken, accessTokenPayload } = useOidcAccessToken()
   useEffect(() => {
     setLoading(true)
-    fetch("http://vader.csh.rit.edu:8000/api/device/", {
+    fetch(`${process.env.REACT_APP_API_DOMAIN}/api/device/`, {
       headers: { "Authorization": `Bearer ${accessToken}` }
     })
       .then(response => {

@@ -10,7 +10,7 @@ function IPRangeTable() {
   const { accessToken, accessTokenPayload } = useOidcAccessToken()
   useEffect(() => {
     setLoading(true)
-    fetch("http://vader.csh.rit.edu:8000/api/admin/iprange", {
+    fetch(`${process.env.REACT_APP_API_DOMAIN}/api/admin/iprange`, {
       headers: { "Authorization": `Bearer ${accessToken}` }
     })
       .then(response => {

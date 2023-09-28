@@ -26,7 +26,7 @@ const Device = () => {
     const [error, setError] = useState(null)
     useEffect(() => {
         setLoading(true)
-        fetch(`http://vader.csh.rit.edu:8000/api/device/${id}`, {
+        fetch(`${process.env.REACT_APP_API_DOMAIN}/api/device/${id}`, {
         headers: { "Authorization": `Bearer ${accessToken}` }
         })
         .then(response => {
