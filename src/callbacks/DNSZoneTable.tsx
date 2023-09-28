@@ -24,10 +24,10 @@ function DNSZoneTable() {
       })
   }, [])
   let tableData = {
-    columns: ["Zone ID", "Zone Name", "Zone Root", "Zone Server"],
+    columns: ["Zone ID", "Zone Name", "Zone Root", "Zone SOA"],
     rows: zones.map((zone: any) => {return {
         link: `/dnszone/${zone.id}`,
-        data: [zone.id, zone.name, zone.root, zone.server]
+        data: [zone.id, zone.zonename, zone.dnsroot, zone.soa]
     }})
   };
   return (
