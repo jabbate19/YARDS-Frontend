@@ -27,7 +27,7 @@ const Profile: React.FunctionComponent = () => {
                     width={32}
                     height={32}
                 />
-                ({userInfo.preferred_username})
+                {userInfo.preferred_username}
                 <span className="caret" />
             </DropdownToggle>
             <DropdownMenu>

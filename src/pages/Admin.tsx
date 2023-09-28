@@ -5,9 +5,11 @@ import Authenticating from '../callbacks/Authenticating'
 import AuthenticationError from '../callbacks/AuthenticationError'
 import SessionLost from '../callbacks/SessionLost'
 import UserInfo from '../UserInfo'
-import DeviceTable from "../callbacks/DeviceTable"
+import ServerTable from "../callbacks/ServerTable"
+import IPRangeTable from "../callbacks/IPRangeTable"
+import DNSZoneTable from "../callbacks/DNSZoneTable"
 
-const Home = () => {
+const Admin = () => {
     // important hooks
     const { accessToken, accessTokenPayload } = useOidcAccessToken()
     const { idToken, idTokenPayload } = useOidcIdToken()  // this is how you get the users id token
@@ -15,9 +17,11 @@ const Home = () => {
 
     return (
         <div>
-            <DeviceTable/>
+            <ServerTable/>
+            <IPRangeTable/>
+            <DNSZoneTable/>
         </div>
     )
 }
 
-export default Home
+export default Admin

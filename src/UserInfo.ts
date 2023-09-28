@@ -24,4 +24,9 @@ interface UserInfo {
     email: string
 }
 
+const is_admin = (user: UserInfo) => {
+    return user.groups.includes("/eboard") || user.groups.includes("/admin/rtp")
+}
+
 export default UserInfo
+export { is_admin }

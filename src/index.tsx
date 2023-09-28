@@ -27,7 +27,7 @@ root.render(
           sessionLostComponent={SessionLost}
         >
           < OidcSecure >
-            <App />
+            <App rerouteHomeOn404={false} />
           </OidcSecure >
         </OidcProvider >
         : <App />

@@ -9,20 +9,31 @@ import {
 } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import Profile from './Profile'
+import { useOidcAccessToken, useOidc, useOidcIdToken } from '@axa-fr/react-oidc'
+import { is_admin } from '../UserInfo'
 
 const NavBar: React.FunctionComponent = () => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false)
-
+    const { idToken, idTokenPayload } = useOidcIdToken()
     const toggle = () => {
         setIsOpen(!isOpen)
     }
-
+    let adminNav;
+    if (is_admin(idTokenPayload)) {
+        adminNav = (
+            <NavItem>
+                <NavLink to='/admin' className='nav-link'>
+                    Admin
+                </NavLink>
+            </NavItem>
+        )
+    }
     return (
         <div>
             <Navbar color='primary' dark expand='lg' fixed='top'>
                 <Container>
                     <NavLink to='/' className={'navbar-brand'}>
-                        CSH React Boilerplate
+                        YARDS
                     </NavLink>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
@@ -33,7 +44,7 @@ const NavBar: React.FunctionComponent = () => {
                                 </NavLink>
                             </NavItem>
                             {
-                                // to add stuff to the navbar, add a NavItem tag with a NavLink to the route
+                                adminNav
                             }
                         </Nav>
                         <Nav navbar className='ml-auto'>
