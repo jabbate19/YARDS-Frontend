@@ -5,6 +5,7 @@ COPY package.json .
 RUN npm install
 COPY . .
 RUN npm cache clean --force # OKD Shit
+RUN rm -rf /.npm
 RUN git config --system --add safe.directory '*' # This is also some OKD shit.
 CMD ["npm", "start"]
 
