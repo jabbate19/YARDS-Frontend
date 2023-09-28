@@ -25,7 +25,7 @@ interface UserInfo {
 }
 
 const is_admin = (user: UserInfo) => {
-    return user.groups.includes("/eboard") || user.groups.includes("/admis/rtp")
+    return user.groups.includes("/eboard") || user.groups.includes("/admins/rtp")
 }
 
 export default UserInfo
